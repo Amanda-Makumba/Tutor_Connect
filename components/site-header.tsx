@@ -34,10 +34,10 @@ export function SiteHeader() {
           </span>
           <span className="flex flex-col leading-none">
             <span className="font-serif text-lg font-semibold tracking-tight text-foreground">
-              TutorConnect
+              Pecision Tutor Connect
             </span>
             <span className="text-[0.7rem] text-muted-foreground">
-              Accounting tutoring
+              PTC - Accounting Tutoring 
             </span>
           </span>
         </Link>

@@ -45,12 +45,6 @@ export function TutorsSection() {
                     <span className="font-medium text-foreground">{tutor.rating}</span>
                     <span className="text-muted-foreground">({tutor.reviews})</span>
                   </span>
-                  <span className="flex items-center gap-1.5 text-muted-foreground">
-                    <Users className="size-4" /> {tutor.students}+ students
-                  </span>
-                  <span className="flex items-center gap-1.5 text-muted-foreground">
-                    <Clock className="size-4" /> {tutor.years} yrs
-                  </span>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {tutor.specialties.map((key) => (

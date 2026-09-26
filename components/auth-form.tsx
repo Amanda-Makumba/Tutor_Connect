@@ -40,7 +40,7 @@ export function AuthForm({ mode }: { mode: 'sign-in' | 'sign-up' }) {
             <GraduationCap className="size-5" />
           </span>
           <span className="font-serif text-lg font-semibold text-foreground">
-            TutorConnect
+            Precision Tutor Connect
           </span>
         </Link>
 
@@ -76,6 +76,21 @@ export function AuthForm({ mode }: { mode: 'sign-in' | 'sign-up' }) {
                   required
                 />
               </Field>
+                    <Field>
+        <FieldLabel htmlFor="level">Academic Level *</FieldLabel>
+        <select
+          id="level"
+          name="level"
+          required
+          className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm"
+        >
+          <option value="">Select your level</option>
+          <option value="CTA Route">CTA Route</option>
+          <option value="University">University</option>
+          <option value="ACCA">ACCA</option>
+          <option value="Other">Other</option>
+        </select>
+      </Field>
 
               {isSignUp ? (
                 <Field>

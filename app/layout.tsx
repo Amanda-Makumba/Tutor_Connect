@@ -1,3 +1,4 @@
+
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Fraunces, Inter } from 'next/font/google'
@@ -17,9 +18,9 @@ const fraunces = Fraunces({
 })
 
 export const metadata: Metadata = {
-  title: 'TutorConnect | Online Accounting Tutoring in Zimbabwe',
+  title: '"Precision Tutor Connect (PTC) - Accounting Tutoring"',
   description:
-    'TutorConnect pairs aspiring chartered accountants and university students in Zimbabwe with expert tutors in Financial Accounting, Taxation, Management Accounting and Auditing. Learn online with tutor profiles, mentorship, flexible payment plans and an AI study assistant.',
+    'Precision Tutor Connect (PTC) - pairs aspiring chartered accountants and university students in Zimbabwe with expert tutors in Financial Accounting, Taxation, Management Accounting and Auditing. Learn online with tutor profiles, mentorship, flexible payment plans and an AI study assistant.',
   generator: 'v0.app',
   keywords: [
     'accounting tutoring Zimbabwe',
