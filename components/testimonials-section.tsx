@@ -1,167 +1,64 @@
-'use client'
+"use client"
+import { useEffect, useState } from "react"
 
-import { useState } from 'react'
-import { Star, Quote } from 'lucide-react'
-import { toast } from 'sonner'
-import { TESTIMONIALS, TUTORS, getTutor } from '@/lib/data'
-import { SectionHeading } from '@/components/section-heading'
-import { StarRating } from '@/components/star-rating'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
-import { Field, FieldLabel, FieldGroup } from '@/components/ui/field'
-import { Textarea } from '@/components/ui/textarea'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectGroup,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-
-export function TestimonialsSection() {
-  return (
-    <section id="reviews" className="scroll-mt-20 border-b border-border/60 bg-background">
-      <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
-        <SectionHeading
-          eyebrow="Student ratings"
-          title="What students say about their tutors"
-          description="Real feedback from Zimbabwean students rating their experience with our tutors."
-        />
-
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {TESTIMONIALS.map((t) => {
-            const tutor = getTutor(t.tutorSlug)
-            return (
-              <figure
-                key={t.name + t.quote}
-                className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm"
-              >
-                <div className="flex items-center justify-between">
-                  <StarRating value={t.rating} size="sm" />
-                  <Quote className="size-5 text-accent" aria-hidden="true" />
-                </div>
-                <blockquote className="flex-1 text-sm text-foreground">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-                <figcaption className="flex items-center gap-3 border-t border-border pt-4">
-                  <Avatar className="size-10">
-                    <AvatarFallback className="bg-primary/10 text-xs font-semibold text-primary">
-                      {t.initials}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-medium text-foreground">{t.name}</p>
-                    <p className="truncate text-xs text-muted-foreground">{t.role}</p>
-                  </div>
-                </figcaption>
-                <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-                  <Badge variant="secondary" className="rounded-full">{t.module}</Badge>
-                  <span>with {tutor?.name}</span>
-                </div>
-              </figure>
-            )
-          })}
-        </div>
-
-        <RateTutorForm />
-      </div>
-    </section>
-  )
+type Review = {
+  name: string
+  module: string
+  rating: number
+  text: string
+  date: string
 }
 
-function RateTutorForm() {
-  const [rating, setRating] = useState(0)
-  const [hover, setHover] = useState(0)
-  const [tutorSlug, setTutorSlug] = useState<string>('')
+export function TestimonialsSection() {
+  const [reviews, setReviews] = useState<Review[]>([])
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    if (!rating || !tutorSlug) {
-      toast.error('Please select a tutor and a star rating.')
-      return
+  useEffect(() => {
+    const load = () => {
+      const saved = JSON.parse(localStorage.getItem("tutor-reviews") || "[]")
+      setReviews(saved)
     }
-    toast.success('Thanks for your review!', {
-      description: 'Your rating helps other students choose the right tutor.',
-    })
-    setRating(0)
-    setTutorSlug('')
+    load()
+    // Listen for new reviews
+    window.addEventListener("reviews-updated", load)
+    window.addEventListener("storage", load)
+    return () => {
+      window.removeEventListener("reviews-updated", load)
+      window.removeEventListener("storage", load)
+    }
+  }, [])
+
+  if (reviews.length === 0) {
+    return (
+      <section className="py-16 text-center bg-gray-50">
+        <h2 className="text-3xl font-bold mb-2">What students say about their tutors</h2>
+        <p className="text-gray-500">No reviews yet. Be the first to rate your tutor!</p>
+      </section>
+    )
   }
 
   return (
-    <div className="mx-auto mt-14 max-w-2xl rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
-      <h3 className="font-serif text-xl font-semibold text-foreground">
-        Rate your tutor
-      </h3>
-      <p className="mt-1 text-sm text-muted-foreground">
-        Studied with us? Share your experience to help fellow students.
-      </p>
-      <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-5">
-        <FieldGroup>
-          <Field>
-            <FieldLabel htmlFor="review-tutor">Your tutor</FieldLabel>
-            <Select value={tutorSlug} onValueChange={(v) => setTutorSlug(v ?? '')}>
-              <SelectTrigger id="review-tutor">
-                <SelectValue placeholder="Select a tutor" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  {TUTORS.map((t) => (
-                    <SelectItem key={t.slug} value={t.slug}>
-                      {t.name}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </Field>
-
-          <Field>
-            <FieldLabel>Your rating</FieldLabel>
-            <div className="flex items-center gap-1">
-              {Array.from({ length: 5 }).map((_, i) => {
-                const val = i + 1
-                const active = (hover || rating) >= val
-                return (
-                  <button
-                    key={val}
-                    type="button"
-                    onClick={() => setRating(val)}
-                    onMouseEnter={() => setHover(val)}
-                    onMouseLeave={() => setHover(0)}
-                    className="rounded-md p-0.5 outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                    aria-label={`${val} star${val === 1 ? '' : 's'}`}
-                  >
-                    <Star
-                      className={cn(
-                        'size-7 transition-colors',
-                        active
-                          ? 'fill-accent text-accent'
-                          : 'fill-transparent text-muted-foreground/40',
-                      )}
-                    />
-                  </button>
-                )
-              })}
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="text-3xl font-bold text-center mb-2">What students say about their tutors</h2>
+        <p className="text-center text-gray-500 mb-8">{reviews.length} real student reviews</p>
+        <div className="grid md:grid-cols-3 gap-6">
+          {reviews.map((r, i) => (
+            <div key={i} className="border p-6 rounded-xl bg-white shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold">
+                  {r.name?.[0]?.toUpperCase() || "S"}
+                </div>
+                <div>
+                  <p className="font-bold text-sm">{r.name}</p>
+                  <p className="text-xs text-gray-500">{r.module} • {r.date}</p>
+                </div>
+              </div>
+              <p className="text-sm mb-2">{"⭐".repeat(r.rating)}</p>
+              <p className="text-sm text-gray-700">"{r.text}"</p>
             </div>
-          </Field>
-
-          <Field>
-            <FieldLabel htmlFor="review-text">Your review</FieldLabel>
-            <Textarea
-              id="review-text"
-              rows={3}
-              placeholder="Tell us about your experience..."
-            />
-          </Field>
-        </FieldGroup>
-
-        <Button type="submit" className="w-fit">
-          Submit review
-        </Button>
-      </form>
-    </div>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }

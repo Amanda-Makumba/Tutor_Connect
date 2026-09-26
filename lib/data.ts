@@ -173,10 +173,10 @@ export const TUTORS: Tutor[] = [
     title: 'Financial Reporting & Auditing Specialist',
     image: '/tutors/tawanda-muradzikwa.png',
     initials: 'TM',
-    rating: 5,
+    rating: 4.5,
     reviews: 1,
-    students: 0,
-    years: 0,
+    students:0,
+    years:0,
     specialties: ['financial-accounting', 'auditing'],
     bio:'Tawanda Muradzikwa is a dedicated Trainee Accountant, currently pursuing the Chartered Accountant (CA (Z)) qualification. He holds both IAC and ZCTA qualifications and doing his APC Board Exam, is a graduate of Chinhoyi University of Technology, and has practical experience in accounting, auditing, and financial reporting. In addition to his professional career, Tawanda has a strong passion for teaching and has previously tutored aspiring accounting students through Precision Teaching, helping them build confidence and achieve academic success. His blend of industry expertise, academic excellence, and commitment to student development makes him a valuable tutor at Precision Tutor Connect.',
     highlights: [
@@ -219,69 +219,49 @@ export type Plan = {
 
 export const PLANS: Plan[] = [
   {
-    key: 'single',
-    name: 'Single Session',
+    key: 'workshop',
+    name: 'Workshop',
     price: '$15',
+    cadence: 'per workshop per person',
+    description: 'Affordable workshops focused on specific subjects, revision techniques, and exam preparation',
+    features: [
+      'Subject-specific deep dives',
+      'Exam preparation & revision',
+      'Group learning environment',
+      'Affordable per person'
+    ],
+  },
+  {
+    key: 'one-on-one',
+    name: 'One on One Session',
+    price: '$20',
+    cadence: 'per session (1-2 hours)',
+    description: 'Personalized tutoring sessions, exam prep and revision support',
+    features: [
+      'Personalized 1-2 hour session',
+      'Exam preparation & revision',
+      'One-on-one attention',
+      'Flexible scheduling'
+    ],
+  },
+  {
+    key: 'mentorship',
+    name: 'Mentorship',
+    price: '$20',
     cadence: 'per session',
-    description: 'Perfect for a one-off topic or a quick pre-exam boost.',
+    description: 'Career guidance services, CV workshops, career counseling',
     features: [
-      'One 60-minute live online session',
-      'Any module or subtopic',
-      'Session recording & notes',
-      'Pay per session, no commitment',
+      'Career guidance & counseling',
+      'University application guidance',
+      'CV and career workshops',
+      'Interview preparation'
     ],
   },
-  {
-    key: 'module',
-    name: 'Module Bundle',
-    price: '$99',
-    cadence: 'per module',
-    description: 'Full coverage of one module across all its subtopics.',
-    popular: true,
-    features: [
-      'Up to 10 live online sessions',
-      'Complete coverage of one module',
-      'Practice questions & mock feedback',
-      'AI study assistant access',
-      'Progress tracking with your tutor',
-    ],
-  },
-  {
-    key: 'monthly',
-    name: 'Monthly Unlimited',
-    price: '$60',
-    cadence: 'per month',
-    description: 'Consistent weekly support across every module.',
-    features: [
-      'Up to 8 live sessions per month',
-      'All four modules included',
-      'Priority scheduling',
-      'AI study assistant access',
-      'Mentorship check-ins',
-    ],
-  },
-  {
-    key: 'intensive',
-    name: 'Exam Prep Intensive',
-    price: '$180',
-    cadence: 'per exam block',
-    description: 'Structured revision programme for the weeks before exams.',
-    features: [
-      'Intensive revision timetable',
-      'Full mock exams & marking',
-      'All modules & subtopics',
-      'Daily AI assistant support',
-      'One-on-one mentorship sessions',
-    ],
-  },
-]
-
+];
 export const PAYMENT_METHODS = [
   'EcoCash',
-  'OneMoney',
+  'Cash',
   'InnBucks',
-  'ZIPIT / Bank Transfer',
-  'Visa / Mastercard',
 ]
 
 export type Testimonial = {
@@ -294,68 +274,8 @@ export type Testimonial = {
   initials: string
 }
 
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Rutendo C.',
-    role: 'CTA Candidate, Harare',
-    tutorSlug: 'tawanda-muradzikwa',
-    module: 'Financial Accounting',
-    rating: 5,
-    quote:
-      'Tawanda made consolidations finally click for me. His step-by-step method got me through my board exam on the first attempt.',
-    initials: 'RC',
-  },
-  {
-    name: 'Blessing M.',
-    role: 'BCom Accounting Student, UZ',
-    tutorSlug: 'itai-munemo',
-    module: 'Taxation Accounting',
-    rating: 5,
-    quote:
-      'Itai knows Zimbabwean tax inside out. Every session had worked examples I could actually reuse in the exam. Highly recommend.',
-    initials: 'BM',
-  },
-  {
-    name: 'Nyasha D.',
-    role: 'Aspiring Chartered Accountant',
-    tutorSlug: 'itai-munemo',
-    module: 'Management Accounting',
-    rating: 4,
-    quote:
-      'Variance analysis used to terrify me. After a few sessions with Itai I was confident and scored my highest mark yet.',
-    initials: 'ND',
-  },
-  {
-    name: 'Tapiwa G.',
-    role: 'Final Year Student, NUST',
-    tutorSlug: 'tawanda-muradzikwa',
-    module: 'Applied Auditing',
-    rating: 5,
-    quote:
-      'The auditing sessions were so well structured. I understood the whole audit process and how to answer application questions.',
-    initials: 'TG',
-  },
-  {
-    name: 'Chiedza N.',
-    role: 'CTA Candidate, Bulawayo',
-    tutorSlug: 'tawanda-muradzikwa',
-    module: 'Financial Accounting',
-    rating: 5,
-    quote:
-      'Online sessions fit around my work perfectly and the recordings meant I could revise anytime. Worth every dollar.',
-    initials: 'CN',
-  },
-  {
-    name: 'Farai K.',
-    role: 'BCom Student, MSU',
-    tutorSlug: 'itai-munemo',
-    module: 'Management Accounting',
-    rating: 4,
-    quote:
-      'Great at explaining investment appraisal in plain language. The mentorship kept me motivated through a tough semester.',
-    initials: 'FK',
-  },
-]
+export const TESTIMONIALS: Testimonial[] = []
+
 
 export const CONTACT = {
   phone: '071 455 2095',
