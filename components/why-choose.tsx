@@ -52,7 +52,7 @@ export function WhyChoose() {
     <section id="why" className="scroll-mt-20 border-b border-border/60 bg-background">
       <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
         <SectionHeading
-          eyebrow="Why choose TutorConnect"
+          eyebrow="Why choose Precision Tutor Connect"
           title="Everything you need to pass, in one place"
           description="Here is why students across the country choose to learn with us."
         />

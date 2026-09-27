@@ -37,8 +37,8 @@ export function SiteHeader() {
               Pecision Tutor Connect
             </span>
             <span className="text-[0.7rem] text-muted-foreground">
-              PTC - Accounting Tutoring 
-            </span>
+              PTC 
+          </span>
           </span>
         </Link>
 

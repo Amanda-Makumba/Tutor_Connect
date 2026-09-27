@@ -53,7 +53,7 @@ export function AiAssistant() {
         <div
           className="fixed bottom-24 right-5 z-50 flex h-[32rem] max-h-[calc(100dvh-8rem)] w-[calc(100vw-2.5rem)] max-w-96 flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl"
           role="dialog"
-          aria-label="TutorConnect study assistant"
+          aria-label="Precision Tutor Connect study assistant"
         >
           <header className="flex items-center gap-3 border-b border-border bg-primary px-4 py-3 text-primary-foreground">
             <span className="flex size-9 items-center justify-center rounded-lg bg-primary-foreground/15">

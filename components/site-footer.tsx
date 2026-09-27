@@ -11,7 +11,7 @@ export function SiteFooter() {
             <span className="flex size-9 items-center justify-center rounded-lg bg-accent text-accent-foreground">
               <GraduationCap className="size-5" />
             </span>
-            <span className="font-serif text-lg font-semibold">TutorConnect</span>
+            <span className="font-serif text-lg font-semibold">Precision Tutor Connect</span>
           </Link>
           <p className="max-w-sm text-sm text-primary-foreground/70">
             Online accounting tutoring for aspiring chartered accountants and
@@ -76,7 +76,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-primary-foreground/15">
         <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-primary-foreground/60 sm:flex-row sm:px-6">
-          <p>© {new Date().getFullYear()} TutorConnect. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Precision Tutor Connect. All rights reserved.</p>
           <p>Proudly supporting Zimbabwean accounting students.</p>
         </div>
       </div>

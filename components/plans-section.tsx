@@ -92,6 +92,12 @@ export function PlansSection() {
         </div>
       </div>
 
+      <div className="mt-10 rounded-lg bg-green-50 border border-green-200 p-4 text-center">
+        <p className="font-bold text-green-800">
+          For your payments please contact this number +263 714 552 095 
+        </p>
+      </div>
+
       <CheckoutDialog plan={selected} onOpenChange={(open) => !open && setSelected(null)} />
     </section>
   )
@@ -146,8 +152,7 @@ function CheckoutDialog({
               </Field>
             </FieldGroup>
             <p className="mt-3 rounded-lg bg-muted/60 p-3 text-xs text-muted-foreground">
-              Pay via EcoCash, OneMoney or InnBucks to <strong>071 455 2095</strong>,
-              then submit to confirm. A tutor will verify and activate your plan.
+              Pay via EcoCash, Cash or InnBucks to <strong>+263 714 552 095</strong>
             </p>
           </TabsContent>
 

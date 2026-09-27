@@ -42,9 +42,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const tutor = getTutor(slug)
-  if (!tutor) return { title: 'Tutor not found | TutorConnect' }
+  if (!tutor) return { title: 'Tutor not found | Precision Tutor Connect' }
   return {
-    title: `${tutor.name} | TutorConnect`,
+    title: `${tutor.name} | Precision Tutor Connect`,
     description: tutor.bio,
   }
 }

@@ -278,10 +278,10 @@ export const TESTIMONIALS: Testimonial[] = []
 
 
 export const CONTACT = {
-  phone: '071 455 2095',
+  phone: '+263 714 552 095',
   phoneHref: '+263714552095',
   whatsapp: 'https://wa.me/263714552095',
-  email: 'hello@tutorconnect.co.zw',
+  email: 'Tawanda.muradzikwa@precisionaccounting.co.zw',
   location: 'Online across Zimbabwe',
 }
 

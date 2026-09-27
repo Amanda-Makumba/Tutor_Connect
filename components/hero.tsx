@@ -26,7 +26,7 @@ export function Hero() {
             Master accounting with tutors who&apos;ve been there
           </h1>
           <p className="max-w-xl text-pretty text-base text-muted-foreground sm:text-lg">
-            TutorConnect pairs aspiring chartered accountants and university
+            Precision Tutor Connect pairs aspiring chartered accountants and university
             students with specialist tutors in Financial Accounting, Taxation,
             Management Accounting and Auditing — all online, all on your
             schedule.

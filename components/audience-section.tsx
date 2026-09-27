@@ -35,7 +35,7 @@ export function AudienceSection() {
         <SectionHeading
           eyebrow="Who we help"
           title="Built for the students we know best"
-          description="TutorConnect is designed around two groups of Zimbabwean learners and what each of them needs to succeed."
+          description="Precision Tutor Connect is designed around two groups of Zimbabwean learners and what each of them needs to succeed."
         />
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
