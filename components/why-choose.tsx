@@ -37,7 +37,7 @@ const REASONS = [
     icon: Wallet,
     title: 'Affordable local payments',
     description:
-      'Pay online with the methods you already use — EcoCash, OneMoney, InnBucks, bank transfer or card.',
+      'Pay online with the methods you already use — EcoCash, Cash or InnBucks.',
   },
   {
     icon: HeartHandshake,
